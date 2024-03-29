@@ -27,28 +27,30 @@ print()
 Fibonacci numbers using Recursion.
 The term Recursion can be defined as the process of defining something in terms of itself. 
 In simple words, it is a process in which a function calls itself directly or indirectly. 
+
+    A lot of memory and time is taken through recursive calls which makes it expensive for use.
+    Recursive functions are challenging to debug.
+    The reasoning behind recursion can sometimes be tough to think through.
+
 """
 
-def Fibonacci(n):
+
+# Program to print the fibonacci series upto n_terms
  
-    # Check if input is 0 then it will
-    # print incorrect input
-    if n < 0:
-        print("Incorrect input")
+# Recursive function
+def recursive_fibonacci(n):
+  if n <= 1:
+      return n
+  else:
+      return(recursive_fibonacci(n-1) + recursive_fibonacci(n-2))
  
-    # Check if n is 0
-    # then it will return 0
-    elif n == 0:
-        return 0
+n_terms = 10
  
-    # Check if n is 1,2
-    # it will return 1
-    elif n == 1 or n == 2:
-        return 1
- 
-    else:
-        return Fibonacci(n-1) + Fibonacci(n-2)
- 
- 
-# Driver Program
-print(Fibonacci(9))
+# check if the number of terms is valid
+if n_terms <= 0:
+  print("Invalid input ! Please input a positive value")
+else:
+  print("Fibonacci series:")
+for i in range(n_terms):
+    print(recursive_fibonacci(i))
+
